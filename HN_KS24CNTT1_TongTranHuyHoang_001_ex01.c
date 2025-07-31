@@ -16,6 +16,7 @@ typedef struct Stack {
 
 char str[MAX];
 int index = 0;
+int valid = 1;
 
 Stack* createStack(int capacity) {
     Stack* stack = (Stack*)malloc(sizeof(Stack));
@@ -40,8 +41,10 @@ Operation addOperation() {
     operation.value[strcspn(operation.value, "\n")] = '\0';
     if (strlen(operation.value) != 1) {
         printf("Chi duoc them 1 ky tu!\n");
+        valid = 0;
         return;
     }
+    valid = 1;
     return operation;
 }
 
@@ -97,8 +100,10 @@ int main() {
             case 1:
                 Operation operation = addOperation();
                 push(UNDO, operation);
-                str[index] = operation.value[0];
-                index++;
+                if (valid == 1) {
+                    str[index] = operation.value[0];
+                    index++;
+                }
                 break;
             case 2:
                 if (isEmpty(UNDO)) {
