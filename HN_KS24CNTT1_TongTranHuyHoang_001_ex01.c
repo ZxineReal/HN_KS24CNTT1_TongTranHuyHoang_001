@@ -38,6 +38,10 @@ Operation addOperation() {
     printf("Moi ban nhap ki tu:\n");
     fgets(operation.value, MAX, stdin);
     operation.value[strcspn(operation.value, "\n")] = '\0';
+    if (strlen(operation.value) != 1) {
+        printf("Chi duoc them 1 ky tu!\n");
+        return;
+    }
     return operation;
 }
 
