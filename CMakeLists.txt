@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.31)
+project(HN_KS24CNTT1_TongTranHuyHoang_001 C)
+
+set(CMAKE_C_STANDARD 11)
+
+add_executable(HN_KS24CNTT1_TongTranHuyHoang_001 HN_KS24CNTT1_TongTranHuyHoang_001_ex01.c)
